@@ -30,37 +30,8 @@
 </section>
 
 <section class="product-grid">
-    <div class="container">
-
-        <!-- منتج -->
-        <div class="product-card">
-            <img src="images/logo.png" alt="شوكولاتة الزعفران والفستق">
-            <h3>شوكولاتة الزعفران والفستق</h3>
-            <p class="price">AED 45.00</p>
-            <button class="add-to-cart">أضف إلى السلة</button>
-        </div>
-
-        <div class="product-card">
-            <img src="images/logo.png" alt="شوكولاتة تشيز كيك الفراولة">
-            <h3>تشيز كيك الفراولة</h3>
-            <p class="price">AED 42.00</p>
-            <button class="add-to-cart">أضف إلى السلة</button>
-        </div>
-
-        <div class="product-card">
-            <img src="images/logo.png" alt="شوكولاتة الكراميل المملح">
-            <h3>الكراميل المملح</h3>
-            <p class="price">AED 40.00</p>
-            <button class="add-to-cart">أضف إلى السلة</button>
-        </div>
-
-        <div class="product-card">
-            <img src="images/logo.png" alt="القهوة العربية والفانيلا">
-            <h3>القهوة العربية والفانيلا</h3>
-            <p class="price">AED 43.00</p>
-            <button class="add-to-cart">أضف إلى السلة</button>
-        </div>
-
+    <div class="container" id="store-container">
+        <!-- سيتم تحميل المنتجات من LocalStorage هنا -->
     </div>
 </section>
 
@@ -70,6 +41,33 @@
         <p>احصل على خصم 15% عند طلبك الأول باستخدام الرمز: CALINE15</p>
     </div>
 </section>
+
+<!-- سلة المشتريات -->
+<div id="cart" class="cart">
+    <h3>سلة المشتريات</h3>
+    <ul id="cart-items"></ul>
+    <p id="total">الإجمالي: AED 0</p>
+    <button onclick="checkout()">إنهاء الطلب</button>
+    <button onclick="clearCart()">إفراغ السلة</button>
+</div>
+
+<!-- نافذة منبثقة لبيانات العميل -->
+<div id="checkout-form" class="checkout-form" style="display: none;">
+    <div class="form-container">
+        <h3>بيانات التوصيل</h3>
+        <label>الاسم الكامل:</label>
+        <input type="text" id="cust-name" placeholder="اكتب اسمك الكامل" required>
+
+        <label>رقم الهاتف:</label>
+        <input type="tel" id="cust-phone" placeholder="مثال: 0501234567" required>
+
+        <label>العنوان الكامل:</label>
+        <textarea id="cust-address" placeholder="المدينة، الحي، رقم المبنى" required></textarea>
+
+        <button onclick="submitOrder()">إرسال الطلب</button>
+        <button onclick="closeCheckout()">إغلاق</button>
+    </div>
+</div>
 
 <footer>
     <div class="container">
@@ -83,5 +81,97 @@
 </footer>
 
 <script src="js/script.js"></script>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function renderCart() {
+        const list = document.getElementById('cart-items');
+        const total = document.getElementById('total');
+        list.innerHTML = '';
+        let sum = 0;
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - AED ${item.price}`;
+            list.appendChild(li);
+            sum += item.price;
+        });
+        total.textContent = `الإجمالي: AED ${sum.toFixed(2)}`;
+    }
+
+    function attachCartEvents() {
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const name = btn.getAttribute('data-name');
+                const price = parseFloat(btn.getAttribute('data-price'));
+                cart.push({ name, price });
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+                alert("تمت الإضافة إلى السلة!");
+            });
+        });
+    }
+
+    function loadStoreProducts() {
+        const storeContainer = document.getElementById("store-container");
+        const products = JSON.parse(localStorage.getItem("dashboardProducts")) || [];
+
+        storeContainer.innerHTML = '';
+
+        products.forEach(product => {
+            const card = document.createElement("div");
+            card.classList.add("product-card");
+
+            card.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p class="price">AED ${product.price}</p>
+                <button class="add-to-cart" 
+                        data-name="${product.name}" 
+                        data-price="${product.price}">أضف إلى السلة</button>
+            `;
+
+            storeContainer.appendChild(card);
+        });
+
+        attachCartEvents();
+    }
+
+    function checkout() {
+        if (cart.length === 0) {
+            alert("السلة فارغة.");
+            return;
+        }
+        document.getElementById('checkout-form').style.display = 'flex';
+    }
+
+    function closeCheckout() {
+        document.getElementById('checkout-form').style.display = 'none';
+    }
+
+    function submitOrder() {
+        const name = document.getElementById('cust-name').value;
+        const phone = document.getElementById('cust-phone').value;
+        const address = document.getElementById('cust-address').value;
+
+        if (!name || !phone || !address) {
+            alert("يرجى تعبئة جميع البيانات.");
+            return;
+        }
+
+        alert(`شكراً لك ${name}، تم استلام طلبك وسنتواصل معك قريباً.`);
+
+        cart = [];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+        closeCheckout();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        renderCart();
+        loadStoreProducts();
+    });
+</script>
+
 </body>
 </html>

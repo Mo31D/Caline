@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة التحكم | كالين</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .dashboard {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .dashboard h2 {
+            text-align: center;
+            color: #3c2a1e;
+        }
+
+        .form-grid, .product-list {
+            width: 90%;
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+        .form-grid input, .form-grid textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .form-grid button {
+            background-color: #b68c5a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .product-list .product-card {
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            background-color: #f9f2e9;
+        }
+
+        .product-list .product-card h4 {
+            margin: 5px 0;
+        }
+
+        .product-list button {
+            background-color: crimson;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<section class="dashboard">
+    <h2>لوحة تحكم المنتجات</h2>
+
+    <div class="form-grid">
+        <input type="text" id="prod-name" placeholder="اسم المنتج" required>
+        <input type="number" id="prod-price" placeholder="السعر" required>
+        <input type="text" id="prod-image" placeholder="رابط الصورة">
+        <textarea id="prod-desc" placeholder="وصف المنتج"></textarea>
+        <button onclick="addProduct()">إضافة المنتج</button>
+    </div>
+
+    <div class="product-list" id="product-list">
+        <!-- قائمة المنتجات -->
+    </div>
+</section>
+
+<script>
+    let productList = JSON.parse(localStorage.getItem('dashboardProducts')) || [];
+
+    function renderProducts() {
+        const container = document.getElementById("product-list");
+        container.innerHTML = '';
+        productList.forEach((product, index) => {
+            container.innerHTML += `
+                <div class="product-card">
+                    <h4>${product.name}</h4>
+                    <p>السعر: AED ${product.price}</p>
+                    <p>${product.desc}</p>
+                    <img src="${product.image}" alt="${product.name}" style="width:100px; height:auto; margin-top:10px;">
+                    <br><br>
+                    <button onclick="deleteProduct(${index})">حذف</button>
+                </div>
+            `;
+        });
+    }
+
+    function addProduct() {
+        const name = document.getElementById("prod-name").value;
+        const price = document.getElementById("prod-price").value;
+        const image = document.getElementById("prod-image").value || 'images/logo.png';
+        const desc = document.getElementById("prod-desc").value;
+
+        if (!name || !price) {
+            alert("يرجى تعبئة الاسم والسعر.");
+            return;
+        }
+
+        productList.push({ name, price, image, desc });
+        localStorage.setItem('dashboardProducts', JSON.stringify(productList));
+        renderProducts();
+
+        document.getElementById("prod-name").value = '';
+        document.getElementById("prod-price").value = '';
+        document.getElementById("prod-image").value = '';
+        document.getElementById("prod-desc").value = '';
+    }
+
+    function deleteProduct(index) {
+        if (confirm("هل أنت متأكد من حذف هذا المنتج؟")) {
+            productList.splice(index, 1);
+            localStorage.setItem('dashboardProducts', JSON.stringify(productList));
+            renderProducts();
+        }
+    }
+
+    renderProducts();
+</script>
+
+</body>
+</html>
