@@ -229,3 +229,127 @@ footer {
     margin-top: 10px;
 }
 
+.cart {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 260px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-radius: 8px;
+    font-size: 0.95em;
+}
+
+.cart h3 {
+    margin-top: 0;
+    color: #3c2a1e;
+}
+
+.cart ul {
+    padding: 0;
+    list-style: none;
+}
+
+.cart li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+.cart button {
+    background-color: #b68c5a;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    margin: 10px 5px 0 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.checkout-form {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(60, 42, 30, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    text-align: right;
+}
+
+.form-container h3 {
+    margin-top: 0;
+    color: #3c2a1e;
+}
+
+.form-container input, 
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Cairo', sans-serif;
+}
+
+.contact-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.contact-form, .contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-form h3,
+.contact-info h3 {
+    color: #3c2a1e;
+    margin-bottom: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Cairo', sans-serif;
+}
+
+.contact-form button {
+    background-color: #b68c5a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.contact-info p {
+    color: #5b4631;
+    margin: 10px 0;
+}
