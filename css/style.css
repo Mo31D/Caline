@@ -1353,3 +1353,187 @@ ul.conta li a:hover {
 }
 
 /** end contact **/
+
+/* Add RTL support */
+html {
+    direction: rtl;
+}
+
+body {
+    direction: rtl; /* Ensure text and elements align from right to left */
+    text-align: right; /* Default alignment for text */
+}
+
+/* Modify Flexbox for RTL */
+.d_flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row-reverse; /* Reverse the direction for RTL */
+}
+
+/* Text Alignments */
+.text_align_left {
+    text-align: right; /* Align left text to the right */
+}
+
+.text_align_right {
+    text-align: left; /* Align right text to the left */
+}
+
+/* Sidebar */
+#sidebar {
+    background: #432b1f;
+    color: #fff;
+    transition: all 0.3s;
+    position: relative;
+    padding-right: 20px; /* Add padding to the right in RTL */
+    padding-left: 0; /* Remove padding from the left in RTL */
+}
+
+/* Sidebar links and elements */
+#sidebar ul li a {
+    padding: 20px 50px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    display: block;
+    color: #fff;
+    font-weight: 500;
+    line-height: 22px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align to the end of the flex container */
+}
+
+#sidebar ul li a i {
+    font-size: 30px;
+    padding-left: 10px; /* Adjust padding for icon in RTL */
+}
+
+/* Navbar (Optional RTL Adjustments) */
+.navbar-nav {
+    flex-direction: row-reverse; /* Flip navbar for RTL */
+}
+
+.navbar-nav .nav-item {
+    margin-left: 10px; /* Adjust spacing in RTL */
+}
+
+/* Adjustments for carousel controls (for RTL alignment) */
+#carouselExampleIndicators .carousel-control-prev {
+    right: 70px; /* Right controls for RTL */
+    left: inherit;
+}
+
+#carouselExampleIndicators .carousel-control-next {
+    left: 70px; /* Move the next button to the left */
+    right: inherit;
+}
+
+/* Other general RTL adjustments */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Preloader */
+.loader_bg {
+    position: fixed;
+    z-index: 9999999;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader img {
+    width: 280px;
+}
+
+/* Adjust text alignments in different sections */
+.titlepage h2,
+.titlepage h1 {
+    text-align: right; /* Align titles to the right */
+}
+
+/* Orders section RTL */
+.orders .titlepage {
+    padding-bottom: 40px;
+}
+
+.orders_img {
+    position: relative;
+    margin-top: 12px;
+}
+
+.orders_img figure {
+    margin: 0;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(30, 30, 30, 0.24);
+}
+
+.orders_img figure img {
+    max-width: 100%;
+    text-align: center;
+}
+
+.price {
+  background: #382014;
+  width: 80px;
+  text-align: center;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: absolute;
+  z-index: 999999;
+  top: 15px;
+  left: 15px; /* Move price label to left in RTL */
+}
+
+.price span {
+    font-weight: 500;
+    font-size: 17px;
+    text-transform: uppercase;
+    line-height: 19px;
+}
+
+/* Footer RTL */
+.footer {
+    padding-top: 100px;
+    background: url(../images/footer_bg.png);
+    background-size: 100% 100%;
+    background-position: center;
+    text-align: center;
+    position: relative;
+}
+
+.logo_footer {
+    float: right; /* Adjust footer logo alignment for RTL */
+}
+
+ul.social_icon {
+    padding-top: 18px;
+    padding-bottom: 50px;
+    text-align: right; /* Align social icons to the right in RTL */
+}
+
+/* Responsive adjustments for RTL */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column-reverse; /* Stack navbar items for RTL on mobile */
+    }
+}
