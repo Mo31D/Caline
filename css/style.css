@@ -173,6 +173,8 @@ a,
 img {
     max-width: 100%;
     height: auto;
+		display: block;
+    margin: 0 auto;
 }
 
  :focus {
@@ -1041,8 +1043,12 @@ ul.email li i {
 }
 
 .logo_footer {
-    float: left;
+    display: block;
+    float: none;
+    margin: 0 auto;
+    text-align: center;
 }
+
 
 ul.social_icon {
     padding-top: 18px;
@@ -1521,9 +1527,7 @@ img {
     position: relative;
 }
 
-.logo_footer {
-    float: right; /* Adjust footer logo alignment for RTL */
-}
+
 
 ul.social_icon {
     padding-top: 18px;
