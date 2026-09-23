@@ -1702,3 +1702,89 @@ html[dir="rtl"] .manufacturing-visual-notes span{
     width:100%;
   }
 }
+
+
+/* STAGE 19 — OUR STORY MOBILE POLISH */
+.story-mark{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+.story-mark::after{
+  content:"";
+  position:absolute;
+  inset-inline-end:4%;
+  top:50%;
+  width:min(34vw,430px);
+  aspect-ratio:1.45;
+  transform:translateY(-50%);
+  background:url("../images/logo-display.svg") center/contain no-repeat;
+  opacity:.055;
+  pointer-events:none;
+  z-index:0;
+}
+.story-mark .wrap{
+  position:relative;
+  z-index:1;
+}
+.story-mark blockquote{
+  max-width:18ch;
+}
+.story-mark cite{
+  max-width:42ch;
+  line-height:1.7;
+}
+
+@media(max-width:700px){
+  .story-mark{
+    padding:62px 0 66px;
+  }
+  .story-mark::after{
+    width:58vw;
+    top:auto;
+    bottom:22px;
+    inset-inline-end:-8vw;
+    transform:none;
+    opacity:.045;
+  }
+  .story-mark .eyebrow{
+    margin-bottom:16px;
+  }
+  .story-mark blockquote{
+    max-width:15ch;
+    font-size:clamp(2rem,9.2vw,2.7rem);
+    line-height:1.12;
+    letter-spacing:-.03em;
+    margin-bottom:0;
+  }
+  .story-mark cite{
+    margin-top:22px;
+    max-width:30ch;
+    font-size:.76rem;
+    line-height:1.75;
+  }
+  html[dir="rtl"] .story-mark blockquote{
+    max-width:14ch;
+    font-size:clamp(1.9rem,8.5vw,2.5rem);
+    line-height:1.38;
+    letter-spacing:0;
+  }
+  html[dir="rtl"] .story-mark cite{
+    font-size:.8rem;
+    line-height:1.9;
+  }
+}
+
+@media(max-width:430px){
+  .story-mark{
+    padding:56px 0 60px;
+  }
+  .story-mark blockquote{
+    max-width:14ch;
+    font-size:clamp(1.9rem,8.7vw,2.45rem);
+  }
+  html[dir="rtl"] .story-mark blockquote{
+    max-width:13ch;
+    font-size:clamp(1.82rem,8.1vw,2.32rem);
+  }
+}
