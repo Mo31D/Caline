@@ -195,6 +195,7 @@
         '</div>' +
         '<div class="mobile-panel" data-mobile-panel><nav class="wrap" aria-label="' + t.menu + '">' +
           '<a href="tel:' + PHONE + '">' + (lang === 'ar' ? 'اتصل بنا' : 'Call us') + ' <bdi dir="ltr">' + PHONE_DISPLAY + '</bdi></a>' +
+          navLink('selection.html','selection',active,t) +
           navLink('chocolate.html','chocolate',active,t) +
           navLink('gifts.html','gifts',active,t) +
           navLink('manufacturing.html','manufacturing',active,t) +

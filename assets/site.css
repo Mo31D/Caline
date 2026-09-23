@@ -325,6 +325,8 @@ html[dir="rtl"] .big-quote blockquote{letter-spacing:0;line-height:1.35}
   .footer-bottom{align-items:flex-start;flex-direction:column;padding:20px 0}
 }
 @media(max-width:430px){
+  .header-actions .selection-link{display:none}
+  .header-row .brand,.header-row .brand img{width:112px}
   .phone-link{min-width:40px;min-height:40px;padding:0 8px}
   .collection-grid,.catalogue-grid{grid-template-columns:1fr}
   .collection-art{aspect-ratio:1.15}
