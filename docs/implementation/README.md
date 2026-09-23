@@ -1,6 +1,6 @@
 # Caline Implementation Reports
 
 - [Stage 10 — Visual & Content Polish](./10-visual-polish.md)
-- [Stage 11 — Full English / Arabic Architecture](./11-bilingual-architecture.md)
+- [Stage 11 — Full English / Arabic Architecture](./11-bilingual-architecture.md)\n- [Stage 12 — Brand Copy Refinement](./12-brand-copy-refinement.md)
 
 Earlier research and audit work remains under [`docs/audit/`](../audit/README.md).
