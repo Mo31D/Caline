@@ -1,5 +1,7 @@
 (() => {
   const EMAIL = 'info@calinefactory.com';
+  const PHONE = '+971501015082';
+  const PHONE_DISPLAY = '+971 50 101 5082';
   const STORAGE_KEY = 'caline-selection-v2';
   const LANG_KEY = 'caline-language';
 
@@ -97,6 +99,7 @@
     menu: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
     bag: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 8h12l1 12H5L6 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>',
     arrow: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>'
+    ,phone: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16.6v2.7a1.7 1.7 0 0 1-1.9 1.7A18.6 18.6 0 0 1 3 4.9 1.7 1.7 0 0 1 4.7 3h2.7a1.7 1.7 0 0 1 1.7 1.5l.4 2.6a1.7 1.7 0 0 1-.5 1.5l-1.3 1.3a15.1 15.1 0 0 0 6.4 6.4l1.3-1.3a1.7 1.7 0 0 1 1.5-.5l2.6.4a1.7 1.7 0 0 1 1.5 1.7Z"/></svg>'
   };
 
   function locale() {
@@ -184,12 +187,14 @@
             navLink('contact.html','contact',active,t) +
           '</nav>' +
           '<div class="header-actions">' +
+            '<a class="phone-link" href="tel:' + PHONE + '" aria-label="' + (lang === 'ar' ? 'اتصل بكالين على ' : 'Call Caline at ') + PHONE_DISPLAY + '">' + icons.phone + '<span class="phone-number" dir="ltr">' + PHONE_DISPLAY + '</span></a>' +
             '<a class="lang-button" href="' + otherLanguageHref() + '" hreflang="' + (lang === 'ar' ? 'en' : 'ar') + '" data-language-link>' + t.language + '</a>' +
             '<a class="selection-link" href="' + page('selection.html') + '"' + (active === 'selection' ? ' aria-current="page"' : '') + '>' + icons.bag + '<span class="selection-label">' + t.selection + '</span><span class="selection-count">' + selected.length + '</span></a>' +
             '<button class="icon-button mobile-toggle" type="button" data-mobile-toggle aria-label="' + t.menu + '">' + icons.menu + '</button>' +
           '</div>' +
         '</div>' +
         '<div class="mobile-panel" data-mobile-panel><nav class="wrap" aria-label="' + t.menu + '">' +
+          '<a href="tel:' + PHONE + '">' + (lang === 'ar' ? 'اتصل بنا' : 'Call us') + ' <bdi dir="ltr">' + PHONE_DISPLAY + '</bdi></a>' +
           navLink('chocolate.html','chocolate',active,t) +
           navLink('gifts.html','gifts',active,t) +
           navLink('manufacturing.html','manufacturing',active,t) +
@@ -220,7 +225,7 @@
             '<div class="footer-brand"><a class="footer-logo" href="' + page('index.html') + '"><img src="' + asset('images/logo-display.svg') + '" alt="Caline"></a><p>' + t.footerIntro + '</p><a class="text-link" href="mailto:' + EMAIL + '">' + EMAIL + '</a></div>' +
             '<div class="footer-col"><h2>' + t.explore + '</h2><a href="' + page('chocolate.html') + '">' + t.chocolate + '</a><a href="' + page('gifts.html') + '">' + t.gifts + '</a><a href="' + page('manufacturing.html') + '">' + t.manufacturing + '</a></div>' +
             '<div class="footer-col"><h2>' + t.company + '</h2><a href="' + page('about.html') + '">' + t.story + '</a><a href="' + page('contact.html') + '">' + t.contact + '</a></div>' +
-            '<div class="footer-col"><h2>' + t.enquiries + '</h2><a href="' + page('selection.html') + '">' + t.selection + '</a><a href="mailto:' + EMAIL + '">' + t.email + '</a><span>' + t.availability + '</span></div>' +
+            '<div class="footer-col"><h2>' + t.enquiries + '</h2><a href="tel:' + PHONE + '"><bdi dir="ltr">' + PHONE_DISPLAY + '</bdi></a><a href="' + page('selection.html') + '">' + t.selection + '</a><a href="mailto:' + EMAIL + '">' + t.email + '</a><span>' + t.availability + '</span></div>' +
           '</div>' +
           '<div class="footer-bottom"><span>© <span data-year></span> ' + t.rights + '</span><nav><a href="' + page('contact.html') + '">' + t.contact + '</a><a href="' + page('manufacturing.html') + '">' + t.manufacturing + '</a></nav></div>' +
         '</div></footer>';
