@@ -61,14 +61,4 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://calinefactory.com/en/contact.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://calinefactory.com/ar/contact.html"/>
   </url>
-  <url>
-    <loc>https://calinefactory.com/en/selection.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calinefactory.com/en/selection.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://calinefactory.com/ar/selection.html"/>
-  </url>
-  <url>
-    <loc>https://calinefactory.com/ar/selection.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calinefactory.com/en/selection.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://calinefactory.com/ar/selection.html"/>
-  </url>
 </urlset>
