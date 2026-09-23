@@ -4,6 +4,12 @@
   const LANG_KEY = 'caline-language';
 
   const collections = {
+    'wafer-biscuit-roll': {
+      en: 'Wafer Biscuit Roll',
+      ar: 'رول بسكويت الويفر',
+      descEn: 'Crisp wafer rolls in assorted colours, with chocolate-filled rolls shown separately. Ask about current options.',
+      descAr: 'رولات ويفر مقرمشة بألوان متنوعة، مع عرض رولات محشوة بالشوكولاتة بشكل منفصل. اسأل عن الخيارات الحالية.'
+    },
     'pistachio-kunafa': {
       en: 'Pistachio Kunafa Bar',
       ar: 'لوح بيستاشيو كنافة',
