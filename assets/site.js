@@ -45,18 +45,18 @@
       manufacturing: 'Manufacturing',
       story: 'Our Story',
       contact: 'Contact',
-      selection: 'My selection',
+      selection: 'My list',
       menu: 'Menu',
       language: 'العربية',
-      footerIntro: 'Caline brings together chocolate craft, premium presentation and a manufacturing heritage rooted in Sharjah.',
+      footerIntro: 'Chocolate craft, thoughtful gifting and a making story rooted in Sharjah.',
       explore: 'Explore',
       company: 'Caline',
       enquiries: 'Enquiries',
-      availability: 'Availability varies by market and season.',
+      availability: 'Ask us what is available in your market.',
       email: 'Email Caline',
       rights: 'Caline Chocolate. All rights reserved.',
-      selected: 'Added to selection',
-      removed: 'Removed from selection'
+      selected: 'Saved to my list',
+      removed: 'Removed from my list'
     },
     ar: {
       top: 'حرفة وصناعة الشوكولاتة · الشارقة، الإمارات',
@@ -66,18 +66,18 @@
       manufacturing: 'التصنيع',
       story: 'قصتنا',
       contact: 'تواصل معنا',
-      selection: 'اختياراتي',
+      selection: 'قائمتي',
       menu: 'القائمة',
       language: 'English',
-      footerIntro: 'تجمع كالين بين حرفة الشوكولاتة وفن التقديم الفاخر وإرث تصنيع راسخ في الشارقة.',
+      footerIntro: 'حرفة شوكولاتة، وهدايا مدروسة، وقصة صناعة جذورها في الشارقة.',
       explore: 'اكتشف',
       company: 'كالين',
       enquiries: 'الاستفسارات',
-      availability: 'تختلف التشكيلة حسب السوق والموسم.',
+      availability: 'اسألنا عما هو متاح في سوقك.',
       email: 'راسل كالين',
       rights: 'كالين للشوكولاتة. جميع الحقوق محفوظة.',
-      selected: 'تمت الإضافة للاختيارات',
-      removed: 'تمت الإزالة من الاختيارات'
+      selected: 'تم الحفظ في قائمتي',
+      removed: 'تمت الإزالة من قائمتي'
     }
   };
 
@@ -235,8 +235,8 @@
       btn.classList.toggle('added', added);
       btn.setAttribute('aria-pressed', added ? 'true' : 'false');
       btn.textContent = added
-        ? (lang === 'ar' ? 'تمت الإضافة' : 'Added')
-        : (lang === 'ar' ? 'أضف للاختيارات' : 'Add to selection');
+        ? (lang === 'ar' ? 'محفوظ' : 'Saved')
+        : (lang === 'ar' ? 'أضف لقائمتي' : 'Add to my list');
     });
   }
 
@@ -277,8 +277,8 @@
     if (!list.length) {
       mount.innerHTML = '<div class="selection-empty">' +
         (lang === 'ar'
-          ? 'لم تضف أي مجموعة بعد. استكشف الشوكولاتة والهدايا ثم أضف ما تريد الاستفسار عنه.'
-          : 'You have not added anything yet. Explore Chocolate and Gifts, then add what you would like to ask about.') +
+          ? 'قائمتك ما زالت فارغة. استكشف الشوكولاتة والهدايا، واحفظ ما يعجبك هنا.'
+          : 'Your list is still empty. Explore Chocolate and Gifts, then save the things you like here.') +
         ' <a class="text-link" href="chocolate.html">' + (lang === 'ar' ? 'استكشف الشوكولاتة' : 'Explore chocolate') + ' ' + icons.arrow + '</a></div>';
     } else {
       mount.innerHTML = list.map((id, i) => {
@@ -306,11 +306,11 @@
     const names = list.map(id => lang === 'ar' ? collections[id].ar : collections[id].en);
     if (lang === 'ar') {
       return 'مرحبًا فريق كالين،\n\nأرغب في معرفة التشكيلة الحالية والتوفر للآتي:\n' +
-        (names.length ? names.map(x => '- ' + x).join('\n') : '- أرجو إرسال الكتالوج الحالي') +
+        (names.length ? names.map(x => '- ' + x).join('\n') : '- أرجو إرسال تشكيلة اليوم') +
         '\n\nالسوق / المدينة: \nالكمية أو المناسبة: \n\nشكرًا.';
     }
     return 'Hello Caline team,\n\nI would like to ask about the current range and availability for:\n' +
-      (names.length ? names.map(x => '- ' + x).join('\n') : '- Please send me the current catalogue') +
+      (names.length ? names.map(x => '- ' + x).join('\n') : '- Please send me today’s selection') +
       '\n\nMarket / city: \nQuantity or occasion: \n\nThank you.';
   }
 
@@ -340,7 +340,7 @@
       copy.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(enquiryText());
-          toast(locale() === 'ar' ? 'تم نسخ الاستفسار' : 'Enquiry copied');
+          toast(locale() === 'ar' ? 'تم نسخ القائمة' : 'List copied');
         } catch {
           toast(locale() === 'ar' ? 'تعذر النسخ تلقائيًا' : 'Could not copy automatically');
         }
@@ -374,8 +374,8 @@
       location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       const status = form.querySelector('[data-form-status]');
       if (status) status.textContent = lang === 'ar'
-        ? 'سيفتح تطبيق البريد لديك لإرسال الاستفسار. لا يتم إرسال أو حفظ أي بيانات على الموقع.'
-        : 'Your email app will open to send the enquiry. This website does not submit or store your details.';
+        ? 'سيُفتح تطبيق البريد لديك. لن تُرسل الرسالة حتى تضغط على إرسال.'
+        : 'Your email app is opening. Nothing is sent until you press send.';
     });
   }
 
