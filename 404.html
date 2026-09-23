@@ -1,27 +1,24 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Page not found | Caline Chocolate</title>
-  <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#251815">
-  <link rel="icon" href="images/logo.png">
-  <link rel="stylesheet" href="assets/site.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#120a09">
+<title>Page not found | Caline Chocolate</title>
+<style>
+html,body{min-height:100%;margin:0;background:radial-gradient(circle at 75% 15%,#4a171b 0,transparent 32%),#120a09;color:#f1e9e5;font-family:Arial,sans-serif}
+body{display:grid;place-items:center}.box{width:min(650px,calc(100% - 40px));text-align:center}.logo{width:210px;height:95px;object-fit:cover;margin:0 auto 35px}
+.kicker{color:#c9a45f;letter-spacing:.18em;font-size:11px;text-transform:uppercase}.box h1{font-size:clamp(46px,8vw,82px);line-height:1;margin:15px 0 20px;font-weight:400}
+.box p{color:#bdaaa3;line-height:1.8}.links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}.links a{border:1px solid #c9a45f;color:#120a09;background:#c9a45f;padding:13px 19px;text-decoration:none;font-size:13px}
+.ar{display:none}html[lang=ar] .en{display:none}html[lang=ar] .ar{display:block}
+</style>
+<script>
+(function(){var path=location.pathname;var saved=localStorage.getItem('caline-language');var lang=path.indexOf('/ar/')>=0?'ar':path.indexOf('/en/')>=0?'en':(saved==='ar'?'ar':((navigator.language||'').toLowerCase().indexOf('ar')===0?'ar':'en'));document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';})();
+</script>
 </head>
-<body data-title-en="Page not found | Caline Chocolate" data-title-ar="الصفحة غير موجودة | كالين">
-<div data-site-header></div>
-<main id="main" class="legacy-note">
-  <div>
-    <p class="eyebrow">404</p>
-    <h1 data-en="That page is not here." data-ar="هذه الصفحة غير موجودة.">That page is not here.</h1>
-    <p data-en="The Caline website has been rebuilt. Use the main navigation or return home."
-       data-ar="تمت إعادة بناء موقع كالين. استخدم القائمة الرئيسية أو عد إلى الصفحة الرئيسية.">
-       The Caline website has been rebuilt.
-    </p>
-    <a class="button" href="index.html" data-en="Return home" data-ar="العودة للرئيسية">Return home</a>
-  </div>
-</main>
-<div data-site-footer></div>
-<script src="assets/site.js"></script>
-</body></html>
+<body><main class="box">
+<img class="logo" src="/images/logo.png" alt="Caline">
+<div class="en"><div class="kicker">404 · CALINE</div><h1>That page has moved.</h1><p>Return to Caline or continue browsing the chocolate collections.</p><div class="links"><a href="/en/">Home</a><a href="/en/chocolate.html">Chocolate</a></div></div>
+<div class="ar"><div class="kicker">404 · CALINE</div><h1>هذه الصفحة غير موجودة.</h1><p>عد إلى كالين أو واصل تصفح تشكيلات الشوكولاتة.</p><div class="links"><a href="/ar/">الرئيسية</a><a href="/ar/chocolate.html">الشوكولاتة</a></div></div>
+</main></body></html>
