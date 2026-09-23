@@ -408,6 +408,14 @@ html[dir="rtl"] .meta{
 .section{
   background:#f4eeea;
 }
+.section.craft-section{
+  background:
+    radial-gradient(circle at 15% 25%,rgba(106,43,49,.22),transparent 32%),
+    linear-gradient(150deg,#1b0d0c,#0f0807);
+  color:var(--pearl);
+  border-top:1px solid var(--line-dark);
+  border-bottom:1px solid var(--line-dark);
+}
 .section:nth-of-type(even):not(.craft-section):not(.big-quote){
   background:#f7f2ee;
 }
