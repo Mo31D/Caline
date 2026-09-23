@@ -4,6 +4,12 @@
   const LANG_KEY = 'caline-language';
 
   const collections = {
+    'pistachio-kunafa': {
+      en: 'Pistachio Kunafa Bar',
+      ar: 'لوح بيستاشيو كنافة',
+      descEn: 'Caline Bar Collection with pistachio-kunafa filling, shown in 80g packaging.',
+      descAr: 'من مجموعة ألواح كالين بحشوة الفستق والكنافة، وتظهر العبوة بوزن 80 جم.'
+    },
     assorted: {
       en: 'Assorted Chocolates',
       ar: 'تشكيلات الشوكولاتة',
