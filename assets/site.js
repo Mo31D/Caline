@@ -243,6 +243,8 @@
 
   function bindSelectionButtons() {
     document.querySelectorAll('[data-add-selection]').forEach(btn => {
+      if (btn.dataset.bound === 'true') return;
+      btn.dataset.bound = 'true';
       btn.addEventListener('click', () => toggleSelection(btn.dataset.addSelection));
     });
     updateSelectionUI();
@@ -326,19 +328,25 @@
 
   function bindSelectionActions() {
     const clear = document.querySelector('[data-clear-selection]');
-    if (clear) clear.addEventListener('click', () => {
-      saveSelection([]);
-      renderSelectionPage();
-    });
+    if (clear && clear.dataset.bound !== 'true') {
+      clear.dataset.bound = 'true';
+      clear.addEventListener('click', () => {
+        saveSelection([]);
+        renderSelectionPage();
+      });
+    }
     const copy = document.querySelector('[data-copy-selection]');
-    if (copy) copy.addEventListener('click', async () => {
+    if (copy && copy.dataset.bound !== 'true') {
+      copy.dataset.bound = 'true';
+      copy.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(enquiryText());
         toast(getLang() === 'ar' ? 'تم نسخ الاستفسار' : 'Enquiry copied');
       } catch {
         toast(getLang() === 'ar' ? 'تعذر النسخ تلقائيًا' : 'Could not copy automatically');
       }
-    });
+      });
+    }
   }
 
   function bindContactForm() {
