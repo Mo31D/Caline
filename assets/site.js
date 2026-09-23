@@ -1,6 +1,6 @@
 (() => {
   const EMAIL = 'info@calinefactory.com';
-  const STORAGE_KEY = 'caline-selection-v1';
+  const STORAGE_KEY = 'caline-selection-v2';
   const LANG_KEY = 'caline-language';
 
   const collections = {
@@ -13,32 +13,32 @@
     dark: {
       en: 'Dark Chocolate',
       ar: 'الشوكولاتة الداكنة',
-      descEn: 'Dark chocolate selections form part of Caline’s documented retail history.',
-      descAr: 'تظهر تشكيلات الشوكولاتة الداكنة ضمن السجل التاريخي الموثق لمنتجات كالين.'
+      descEn: 'Dark chocolate selections with a long-standing place in Caline’s retail presentation.',
+      descAr: 'تشكيلات شوكولاتة داكنة لها حضور ممتد ضمن أسلوب عرض كالين.'
     },
     white: {
       en: 'White Chocolate',
       ar: 'الشوكولاتة البيضاء',
-      descEn: 'A historically documented Caline retail category; current selection varies by market.',
-      descAr: 'فئة ظهرت تاريخيًا ضمن منتجات كالين، وتختلف التشكيلة الحالية حسب السوق.'
+      descEn: 'White chocolate selections; current formats vary by market and season.',
+      descAr: 'تشكيلات شوكولاتة بيضاء؛ تختلف الأشكال الحالية حسب السوق والموسم.'
     },
     truffles: {
       en: 'Truffles',
       ar: 'الترافل',
-      descEn: 'Premium decorated truffles are part of Caline’s historical boutique presentation.',
-      descAr: 'ظهر الترافل الفاخر والمزين ضمن أسلوب العرض التاريخي لمتاجر كالين.'
+      descEn: 'Premium decorated truffles within Caline’s boutique presentation tradition.',
+      descAr: 'ترافل فاخر ومزين ضمن تقاليد كالين في التقديم داخل البوتيك.'
     },
     gifts: {
       en: 'Gift Boxes',
       ar: 'علب الهدايا',
-      descEn: 'Presentation boxes and assorted chocolate gifting, with current formats available on request.',
-      descAr: 'علب تقديم وهدايا شوكولاتة مشكلة، مع توفر التفاصيل الحالية عند الطلب.'
+      descEn: 'Chocolate presentation boxes and assortments, with current formats available on request.',
+      descAr: 'علب وتشكيلات شوكولاتة للهدايا، مع معرفة الخيارات الحالية عند الطلب.'
     }
   };
 
-  const shellText = {
+  const shell = {
     en: {
-      top: 'Chocolate manufacturing heritage · Sharjah, UAE',
+      top: 'Chocolate craft & manufacturing · Sharjah, UAE',
       topLink: 'Our craft',
       chocolate: 'Chocolate',
       gifts: 'Gifts',
@@ -47,22 +47,19 @@
       contact: 'Contact',
       selection: 'My selection',
       menu: 'Menu',
-      close: 'Close',
-      language: 'AR',
-      footerIntro: 'Caline combines a documented manufacturing heritage in Sharjah with a long-standing identity built around chocolate craft and presentation.',
+      language: 'العربية',
+      footerIntro: 'Caline brings together chocolate craft, premium presentation and a manufacturing heritage rooted in Sharjah.',
       explore: 'Explore',
-      company: 'Company',
-      help: 'Enquiries',
-      currentRange: 'Current range',
+      company: 'Caline',
+      enquiries: 'Enquiries',
       availability: 'Availability varies by market and season.',
       email: 'Email Caline',
       rights: 'Caline Chocolate. All rights reserved.',
-      research: 'Brand research record',
       selected: 'Added to selection',
       removed: 'Removed from selection'
     },
     ar: {
-      top: 'إرث في صناعة الشوكولاتة · الشارقة، الإمارات',
+      top: 'حرفة وصناعة الشوكولاتة · الشارقة، الإمارات',
       topLink: 'حرفتنا',
       chocolate: 'الشوكولاتة',
       gifts: 'الهدايا',
@@ -71,61 +68,51 @@
       contact: 'تواصل معنا',
       selection: 'اختياراتي',
       menu: 'القائمة',
-      close: 'إغلاق',
-      language: 'EN',
-      footerIntro: 'تجمع كالين بين إرث موثق في صناعة الشوكولاتة بالشارقة وهوية ممتدة ترتكز على الحرفة وفن التقديم.',
+      language: 'English',
+      footerIntro: 'تجمع كالين بين حرفة الشوكولاتة وفن التقديم الفاخر وإرث تصنيع راسخ في الشارقة.',
       explore: 'اكتشف',
-      company: 'الشركة',
-      help: 'الاستفسارات',
-      currentRange: 'التشكيلة الحالية',
+      company: 'كالين',
+      enquiries: 'الاستفسارات',
       availability: 'تختلف التشكيلة حسب السوق والموسم.',
       email: 'راسل كالين',
       rights: 'كالين للشوكولاتة. جميع الحقوق محفوظة.',
-      research: 'سجل البحث والهوية',
       selected: 'تمت الإضافة للاختيارات',
       removed: 'تمت الإزالة من الاختيارات'
     }
   };
 
-  const icon = {
+  const icons = {
     menu: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
     bag: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 8h12l1 12H5L6 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>',
     arrow: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>'
   };
 
-  function getLang() {
-    return localStorage.getItem(LANG_KEY) === 'ar' ? 'ar' : 'en';
+  function locale() {
+    const match = location.pathname.match(/\/(en|ar)(?:\/|$)/);
+    if (match) return match[1];
+    return document.documentElement.lang === 'ar' ? 'ar' : 'en';
   }
 
-  function setLang(lang) {
-    localStorage.setItem(LANG_KEY, lang);
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.body.dataset.lang = lang;
-    applyPageTranslations(lang);
-    renderShell();
-    updateSelectionUI();
-    document.dispatchEvent(new CustomEvent('caline:language', { detail: { lang } }));
+  function inLocaleDirectory() {
+    return /\/(en|ar)(?:\/|$)/.test(location.pathname);
   }
 
-  function applyPageTranslations(lang) {
-    document.querySelectorAll('[data-en][data-ar]').forEach(el => {
-      const value = lang === 'ar' ? el.dataset.ar : el.dataset.en;
-      if (value != null) el.innerHTML = value;
-    });
-    document.querySelectorAll('[data-placeholder-en][data-placeholder-ar]').forEach(el => {
-      el.placeholder = lang === 'ar' ? el.dataset.placeholderAr : el.dataset.placeholderEn;
-    });
-    const title = document.body.dataset[lang === 'ar' ? 'titleAr' : 'titleEn'];
-    const desc = document.body.dataset[lang === 'ar' ? 'descriptionAr' : 'descriptionEn'];
-    if (title) document.title = title;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta && desc) meta.setAttribute('content', desc);
+  function asset(path) {
+    return (inLocaleDirectory() ? '../' : '') + path;
+  }
+
+  function page(path) {
+    return path;
+  }
+
+  function currentFile() {
+    const file = location.pathname.split('/').pop();
+    return file && file.includes('.') ? file : 'index.html';
   }
 
   function currentPage() {
-    const p = location.pathname.split('/').pop() || 'index.html';
-    if (p === '' || p === 'index.html') return 'home';
+    const p = currentFile();
+    if (p === 'index.html') return 'home';
     if (p.includes('chocolate')) return 'chocolate';
     if (p.includes('gifts')) return 'gifts';
     if (p.includes('manufacturing')) return 'manufacturing';
@@ -135,72 +122,17 @@
     return '';
   }
 
-  function navLink(href, key, active, t) {
-    const attr = active === key ? ' aria-current="page"' : '';
-    return '<a href="' + href + '"' + attr + '>' + t[key] + '</a>';
+  function otherLanguageHref() {
+    const lang = locale();
+    const other = lang === 'ar' ? 'en' : 'ar';
+    localStorage.setItem(LANG_KEY, lang);
+    if (inLocaleDirectory()) return '../' + other + '/' + currentFile();
+    return other + '/' + currentFile();
   }
 
-  function renderShell() {
-    const lang = getLang();
-    const t = shellText[lang];
-    const active = currentPage();
-    const selected = getSelection();
-
-    const headerMount = document.querySelector('[data-site-header]');
-    if (headerMount) {
-      headerMount.innerHTML =
-        '<a class="skip-link" href="#main">Skip to content</a>' +
-        '<div class="top-note"><div class="wrap"><span>' + t.top + '</span><a href="manufacturing.html">' + t.topLink + ' ' + icon.arrow + '</a></div></div>' +
-        '<header class="site-header"><div class="wrap header-row">' +
-          '<a class="brand" href="index.html" aria-label="Caline home"><img src="images/logo.png" alt="Caline — Passion au Chocolat"></a>' +
-          '<nav class="desktop-nav" aria-label="' + t.menu + '">' +
-            navLink('chocolate.html','chocolate',active,t) +
-            navLink('gifts.html','gifts',active,t) +
-            navLink('manufacturing.html','manufacturing',active,t) +
-            navLink('about.html','story',active,t) +
-            navLink('contact.html','contact',active,t) +
-          '</nav>' +
-          '<div class="header-actions">' +
-            '<button class="lang-button" type="button" data-language-toggle aria-label="Change language">' + t.language + '</button>' +
-            '<a class="selection-link" href="selection.html"' + (active === 'selection' ? ' aria-current="page"' : '') + '>' + icon.bag + '<span class="selection-label">' + t.selection + '</span><span class="selection-count">' + selected.length + '</span></a>' +
-            '<button class="icon-button mobile-toggle" type="button" data-mobile-toggle aria-label="' + t.menu + '">' + icon.menu + '</button>' +
-          '</div>' +
-        '</div>' +
-        '<div class="mobile-panel" data-mobile-panel><nav class="wrap" aria-label="' + t.menu + '">' +
-          navLink('chocolate.html','chocolate',active,t) +
-          navLink('gifts.html','gifts',active,t) +
-          navLink('manufacturing.html','manufacturing',active,t) +
-          navLink('about.html','story',active,t) +
-          navLink('contact.html','contact',active,t) +
-        '</nav></div></header>';
-
-      const langBtn = headerMount.querySelector('[data-language-toggle]');
-      if (langBtn) langBtn.addEventListener('click', () => setLang(lang === 'ar' ? 'en' : 'ar'));
-      const menuBtn = headerMount.querySelector('[data-mobile-toggle]');
-      const panel = headerMount.querySelector('[data-mobile-panel]');
-      if (menuBtn && panel) {
-        menuBtn.addEventListener('click', () => {
-          const open = panel.classList.toggle('open');
-          menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-      }
-    }
-
-    const footerMount = document.querySelector('[data-site-footer]');
-    if (footerMount) {
-      footerMount.innerHTML =
-        '<footer class="footer"><div class="wrap">' +
-          '<div class="footer-main">' +
-            '<div class="footer-brand"><a class="footer-logo" href="index.html"><img src="images/logo.png" alt="Caline"></a><p>' + t.footerIntro + '</p><a class="text-link" href="mailto:' + EMAIL + '">' + EMAIL + '</a></div>' +
-            '<div class="footer-col"><h2>' + t.explore + '</h2><a href="chocolate.html">' + t.chocolate + '</a><a href="gifts.html">' + t.gifts + '</a><a href="manufacturing.html">' + t.manufacturing + '</a></div>' +
-            '<div class="footer-col"><h2>' + t.company + '</h2><a href="about.html">' + t.story + '</a><a href="contact.html">' + t.contact + '</a><a href="docs/audit/README.md">' + t.research + '</a></div>' +
-            '<div class="footer-col"><h2>' + t.help + '</h2><a href="selection.html">' + t.selection + '</a><a href="mailto:' + EMAIL + '">' + t.email + '</a><span>' + t.availability + '</span></div>' +
-          '</div>' +
-          '<div class="footer-bottom"><span>© <span data-year></span> ' + t.rights + '</span><nav><a href="contact.html">' + t.contact + '</a><a href="manufacturing.html">' + t.manufacturing + '</a></nav></div>' +
-        '</div></footer>';
-      const year = footerMount.querySelector('[data-year]');
-      if (year) year.textContent = new Date().getFullYear();
-    }
+  function navLink(href, key, active, t) {
+    const attr = active === key ? ' aria-current="page"' : '';
+    return '<a href="' + page(href) + '"' + attr + '>' + t[key] + '</a>';
   }
 
   function getSelection() {
@@ -218,24 +150,91 @@
     document.dispatchEvent(new CustomEvent('caline:selection'));
   }
 
+  function renderShell() {
+    const lang = locale();
+    const t = shell[lang];
+    const active = currentPage();
+    const selected = getSelection();
+    localStorage.setItem(LANG_KEY, lang);
+
+    const headerMount = document.querySelector('[data-site-header]');
+    if (headerMount) {
+      headerMount.innerHTML =
+        '<a class="skip-link" href="#main">' + (lang === 'ar' ? 'انتقل إلى المحتوى' : 'Skip to content') + '</a>' +
+        '<div class="top-note"><div class="wrap"><span>' + t.top + '</span><a href="' + page('manufacturing.html') + '">' + t.topLink + ' ' + icons.arrow + '</a></div></div>' +
+        '<header class="site-header"><div class="wrap header-row">' +
+          '<a class="brand" href="' + page('index.html') + '" aria-label="Caline home"><img src="' + asset('images/logo.png') + '" alt="Caline — Passion au Chocolat"></a>' +
+          '<nav class="desktop-nav" aria-label="' + t.menu + '">' +
+            navLink('chocolate.html','chocolate',active,t) +
+            navLink('gifts.html','gifts',active,t) +
+            navLink('manufacturing.html','manufacturing',active,t) +
+            navLink('about.html','story',active,t) +
+            navLink('contact.html','contact',active,t) +
+          '</nav>' +
+          '<div class="header-actions">' +
+            '<a class="lang-button" href="' + otherLanguageHref() + '" hreflang="' + (lang === 'ar' ? 'en' : 'ar') + '" data-language-link>' + t.language + '</a>' +
+            '<a class="selection-link" href="' + page('selection.html') + '"' + (active === 'selection' ? ' aria-current="page"' : '') + '>' + icons.bag + '<span class="selection-label">' + t.selection + '</span><span class="selection-count">' + selected.length + '</span></a>' +
+            '<button class="icon-button mobile-toggle" type="button" data-mobile-toggle aria-label="' + t.menu + '">' + icons.menu + '</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="mobile-panel" data-mobile-panel><nav class="wrap" aria-label="' + t.menu + '">' +
+          navLink('chocolate.html','chocolate',active,t) +
+          navLink('gifts.html','gifts',active,t) +
+          navLink('manufacturing.html','manufacturing',active,t) +
+          navLink('about.html','story',active,t) +
+          navLink('contact.html','contact',active,t) +
+        '</nav></div></header>';
+
+      const languageLink = headerMount.querySelector('[data-language-link]');
+      if (languageLink) languageLink.addEventListener('click', () => {
+        localStorage.setItem(LANG_KEY, lang === 'ar' ? 'en' : 'ar');
+      });
+
+      const menuBtn = headerMount.querySelector('[data-mobile-toggle]');
+      const panel = headerMount.querySelector('[data-mobile-panel]');
+      if (menuBtn && panel) {
+        menuBtn.addEventListener('click', () => {
+          const open = panel.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+    }
+
+    const footerMount = document.querySelector('[data-site-footer]');
+    if (footerMount) {
+      footerMount.innerHTML =
+        '<footer class="footer"><div class="wrap">' +
+          '<div class="footer-main">' +
+            '<div class="footer-brand"><a class="footer-logo" href="' + page('index.html') + '"><img src="' + asset('images/logo.png') + '" alt="Caline"></a><p>' + t.footerIntro + '</p><a class="text-link" href="mailto:' + EMAIL + '">' + EMAIL + '</a></div>' +
+            '<div class="footer-col"><h2>' + t.explore + '</h2><a href="' + page('chocolate.html') + '">' + t.chocolate + '</a><a href="' + page('gifts.html') + '">' + t.gifts + '</a><a href="' + page('manufacturing.html') + '">' + t.manufacturing + '</a></div>' +
+            '<div class="footer-col"><h2>' + t.company + '</h2><a href="' + page('about.html') + '">' + t.story + '</a><a href="' + page('contact.html') + '">' + t.contact + '</a></div>' +
+            '<div class="footer-col"><h2>' + t.enquiries + '</h2><a href="' + page('selection.html') + '">' + t.selection + '</a><a href="mailto:' + EMAIL + '">' + t.email + '</a><span>' + t.availability + '</span></div>' +
+          '</div>' +
+          '<div class="footer-bottom"><span>© <span data-year></span> ' + t.rights + '</span><nav><a href="' + page('contact.html') + '">' + t.contact + '</a><a href="' + page('manufacturing.html') + '">' + t.manufacturing + '</a></nav></div>' +
+        '</div></footer>';
+      const year = footerMount.querySelector('[data-year]');
+      if (year) year.textContent = new Date().getFullYear();
+    }
+  }
+
   function toggleSelection(id) {
     const list = getSelection();
     const index = list.indexOf(id);
     if (index >= 0) list.splice(index, 1);
     else list.push(id);
     saveSelection(list);
-    toast(shellText[getLang()][index >= 0 ? 'removed' : 'selected']);
+    toast(shell[locale()][index >= 0 ? 'removed' : 'selected']);
   }
 
   function updateSelectionUI() {
     const list = getSelection();
+    const lang = locale();
     document.querySelectorAll('.selection-count').forEach(el => el.textContent = list.length);
     document.querySelectorAll('[data-add-selection]').forEach(btn => {
       const added = list.includes(btn.dataset.addSelection);
       btn.classList.toggle('added', added);
       btn.setAttribute('aria-pressed', added ? 'true' : 'false');
-      const lang = getLang();
-      btn.innerHTML = added
+      btn.textContent = added
         ? (lang === 'ar' ? 'تمت الإضافة' : 'Added')
         : (lang === 'ar' ? 'أضف للاختيارات' : 'Add to selection');
     });
@@ -258,8 +257,8 @@
       node.className = 'caline-toast';
       Object.assign(node.style, {
         position:'fixed', insetInlineEnd:'18px', bottom:'18px', zIndex:'3000',
-        background:'#251815', color:'#f5f0e8', padding:'12px 16px',
-        fontSize:'.75rem', boxShadow:'0 12px 35px rgba(37,24,21,.2)'
+        background:'#120a09', color:'#f1e9e5', border:'1px solid rgba(201,164,95,.35)',
+        padding:'12px 16px', fontSize:'.72rem', boxShadow:'0 18px 45px rgba(0,0,0,.32)'
       });
       document.body.appendChild(node);
     }
@@ -272,15 +271,15 @@
   function renderSelectionPage() {
     const mount = document.querySelector('[data-selection-list]');
     if (!mount) return;
-    const lang = getLang();
+    const lang = locale();
     const list = getSelection();
-    const title = lang === 'ar' ? 'اختياراتك' : 'Your selection';
+
     if (!list.length) {
       mount.innerHTML = '<div class="selection-empty">' +
         (lang === 'ar'
-          ? 'لم تضف أي مجموعة بعد. استخدم صفحات الشوكولاتة والهدايا لبناء قائمة الاستفسار الخاصة بك.'
-          : 'You have not added anything yet. Use the Chocolate and Gifts pages to build an enquiry list.') +
-        ' <a class="text-link" href="chocolate.html">' + (lang === 'ar' ? 'استكشف الشوكولاتة' : 'Explore chocolate') + ' ' + icon.arrow + '</a></div>';
+          ? 'لم تضف أي مجموعة بعد. استكشف الشوكولاتة والهدايا ثم أضف ما تريد الاستفسار عنه.'
+          : 'You have not added anything yet. Explore Chocolate and Gifts, then add what you would like to ask about.') +
+        ' <a class="text-link" href="chocolate.html">' + (lang === 'ar' ? 'استكشف الشوكولاتة' : 'Explore chocolate') + ' ' + icons.arrow + '</a></div>';
     } else {
       mount.innerHTML = list.map((id, i) => {
         const c = collections[id];
@@ -289,6 +288,7 @@
           '</p></div><button class="remove-item" type="button" data-remove-selection="' + id + '">' +
           (lang === 'ar' ? 'إزالة' : 'Remove') + '</button></article>';
       }).join('');
+
       mount.querySelectorAll('[data-remove-selection]').forEach(btn => {
         btn.addEventListener('click', () => {
           saveSelection(getSelection().filter(id => id !== btn.dataset.removeSelection));
@@ -297,17 +297,15 @@
         });
       });
     }
-    const heading = document.querySelector('[data-selection-title]');
-    if (heading) heading.textContent = title;
     updateEmailPreview();
   }
 
   function enquiryText() {
-    const lang = getLang();
+    const lang = locale();
     const list = getSelection();
     const names = list.map(id => lang === 'ar' ? collections[id].ar : collections[id].en);
     if (lang === 'ar') {
-      return 'مرحبًا فريق كالين،\n\nأرغب في معرفة التشكيلة الحالية والتوفر للمنتجات التالية:\n' +
+      return 'مرحبًا فريق كالين،\n\nأرغب في معرفة التشكيلة الحالية والتوفر للآتي:\n' +
         (names.length ? names.map(x => '- ' + x).join('\n') : '- أرجو إرسال الكتالوج الحالي') +
         '\n\nالسوق / المدينة: \nالكمية أو المناسبة: \n\nشكرًا.';
     }
@@ -321,7 +319,7 @@
     if (preview) preview.textContent = enquiryText();
     const email = document.querySelector('[data-email-selection]');
     if (email) {
-      const subject = getLang() === 'ar' ? 'استفسار عن منتجات كالين' : 'Caline product enquiry';
+      const subject = locale() === 'ar' ? 'استفسار عن منتجات كالين' : 'Caline product enquiry';
       email.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(enquiryText());
     }
   }
@@ -335,28 +333,30 @@
         renderSelectionPage();
       });
     }
+
     const copy = document.querySelector('[data-copy-selection]');
     if (copy && copy.dataset.bound !== 'true') {
       copy.dataset.bound = 'true';
       copy.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(enquiryText());
-        toast(getLang() === 'ar' ? 'تم نسخ الاستفسار' : 'Enquiry copied');
-      } catch {
-        toast(getLang() === 'ar' ? 'تعذر النسخ تلقائيًا' : 'Could not copy automatically');
-      }
+        try {
+          await navigator.clipboard.writeText(enquiryText());
+          toast(locale() === 'ar' ? 'تم نسخ الاستفسار' : 'Enquiry copied');
+        } catch {
+          toast(locale() === 'ar' ? 'تعذر النسخ تلقائيًا' : 'Could not copy automatically');
+        }
       });
     }
   }
 
   function bindContactForm() {
     const form = document.querySelector('[data-contact-form]');
-    if (!form) return;
+    if (!form || form.dataset.bound === 'true') return;
+    form.dataset.bound = 'true';
     form.addEventListener('submit', event => {
       event.preventDefault();
-      const lang = getLang();
+      const lang = locale();
       const data = new FormData(form);
-      const type = data.get('type') || 'General enquiry';
+      const type = data.get('type') || (lang === 'ar' ? 'استفسار عام' : 'General enquiry');
       const name = data.get('name') || '';
       const email = data.get('email') || '';
       const market = data.get('market') || '';
@@ -380,23 +380,11 @@
   }
 
   function init() {
-    const lang = getLang();
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    applyPageTranslations(lang);
     renderShell();
     bindSelectionButtons();
     renderSelectionPage();
     bindSelectionActions();
     bindContactForm();
-
-    document.addEventListener('caline:language', () => {
-      applyPageTranslations(getLang());
-      bindSelectionButtons();
-      renderSelectionPage();
-      bindSelectionActions();
-      updateEmailPreview();
-    });
   }
 
   document.addEventListener('DOMContentLoaded', init);
