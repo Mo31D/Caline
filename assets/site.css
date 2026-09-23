@@ -1528,3 +1528,90 @@ html[dir="rtl"] .manufacturing-visual-notes span{
     padding-inline:10px;
   }
 }
+
+
+/* STAGE 17 — CHOCOLATE IMAGE SYSTEM */
+.hero-photo-visual{
+  position:relative;
+  isolation:isolate;
+}
+.hero-photo-visual:before{
+  display:none;
+}
+.hero-photo-visual:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  width:auto;
+  height:auto;
+  transform:none;
+  background:
+    linear-gradient(180deg,rgba(18,10,9,.02) 0%,rgba(18,10,9,.12) 58%,rgba(18,10,9,.68) 100%);
+  color:transparent;
+  pointer-events:none;
+}
+.hero-brand-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  z-index:0;
+}
+.hero-photo-visual:not(.is-pending) .presentation-box{
+  display:none;
+}
+.hero-photo-visual.is-pending .presentation-box{
+  display:block;
+  z-index:2;
+}
+.hero-photo-visual .hero-caption{
+  z-index:3;
+}
+
+.collection-photo{
+  background:#251411;
+}
+.collection-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .45s var(--ease);
+}
+.collection-card:hover .collection-photo img{
+  transform:scale(1.025);
+}
+.collection-photo:not(.is-pending)::before,
+.collection-photo:not(.is-pending)::after{
+  display:none!important;
+}
+.collection-photo.is-pending img{
+  display:none;
+}
+
+@media(max-width:1080px){
+  .hero-photo-visual .hero-brand-image{
+    object-position:center 48%;
+  }
+}
+
+@media(max-width:700px){
+  .hero-photo-visual{
+    min-height:460px;
+  }
+  .hero-photo-visual .hero-brand-image{
+    object-position:center;
+  }
+  .collection-photo{
+    aspect-ratio:4/3;
+  }
+}
+
+@media(max-width:430px){
+  .hero-photo-visual{
+    min-height:420px;
+  }
+}
