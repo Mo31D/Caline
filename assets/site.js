@@ -2,6 +2,7 @@
   const EMAIL = 'info@calinefactory.com';
   const PHONE = '+971501015082';
   const PHONE_DISPLAY = '+971 50 101 5082';
+  const INSTAGRAM = 'https://www.instagram.com/calinefactory/';
   const STORAGE_KEY = 'caline-selection-v2';
   const LANG_KEY = 'caline-language';
 
@@ -226,7 +227,7 @@
             '<div class="footer-brand"><a class="footer-logo" href="' + page('index.html') + '"><img src="' + asset('images/logo-display.svg') + '" alt="Caline"></a><p>' + t.footerIntro + '</p><a class="text-link" href="mailto:' + EMAIL + '">' + EMAIL + '</a></div>' +
             '<div class="footer-col"><h2>' + t.explore + '</h2><a href="' + page('chocolate.html') + '">' + t.chocolate + '</a><a href="' + page('gifts.html') + '">' + t.gifts + '</a><a href="' + page('manufacturing.html') + '">' + t.manufacturing + '</a></div>' +
             '<div class="footer-col"><h2>' + t.company + '</h2><a href="' + page('about.html') + '">' + t.story + '</a><a href="' + page('contact.html') + '">' + t.contact + '</a></div>' +
-            '<div class="footer-col"><h2>' + t.enquiries + '</h2><a href="tel:' + PHONE + '"><bdi dir="ltr">' + PHONE_DISPLAY + '</bdi></a><a href="' + page('selection.html') + '">' + t.selection + '</a><a href="mailto:' + EMAIL + '">' + t.email + '</a><span>' + t.availability + '</span></div>' +
+            '<div class="footer-col"><h2>' + t.enquiries + '</h2><a href="tel:' + PHONE + '"><bdi dir="ltr">' + PHONE_DISPLAY + '</bdi></a><a href="' + INSTAGRAM + '" target="_blank" rel="noopener noreferrer" aria-label="Instagram @calinefactory">Instagram · @calinefactory</a><a href="' + page('selection.html') + '">' + t.selection + '</a><a href="mailto:' + EMAIL + '">' + t.email + '</a><span>' + t.availability + '</span></div>' +
           '</div>' +
           '<div class="footer-bottom"><span>© <span data-year></span> ' + t.rights + '</span><nav><a href="' + page('contact.html') + '">' + t.contact + '</a><a href="' + page('manufacturing.html') + '">' + t.manufacturing + '</a></nav></div>' +
         '</div></footer>';
