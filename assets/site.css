@@ -140,6 +140,7 @@ html[dir="rtl"] .hero-visual:before{right:auto;left:-18%}
 .art-dark{background:radial-gradient(circle at 75% 20%,rgba(106,43,49,.32),transparent 35%),#20100e}
 .art-dark:before{width:62%;height:70%;left:19%;top:15%;background:repeating-linear-gradient(90deg,transparent 0 24%,rgba(255,255,255,.10) 24% 26%),repeating-linear-gradient(0deg,transparent 0 24%,rgba(255,255,255,.08) 24% 26%),linear-gradient(145deg,#5e3329,#1b0d0b);box-shadow:18px 20px 0 rgba(201,164,95,.22)}
 .art-dark:after{content:"DARK";position:absolute;left:24px;bottom:20px;color:rgba(255,255,255,.45);letter-spacing:.18em;font-size:.58rem}
+html[dir="rtl"] .art-dark:after{content:"داكنة";left:auto;right:24px;letter-spacing:0}
 .art-white{background:linear-gradient(145deg,#d8c7bf,#f2e8e1)}
 .art-white:before{width:62%;height:70%;left:19%;top:15%;background:repeating-linear-gradient(90deg,transparent 0 24%,rgba(78,49,42,.10) 24% 26%),repeating-linear-gradient(0deg,transparent 0 24%,rgba(78,49,42,.08) 24% 26%),linear-gradient(145deg,#fffaf4,#d4c1b7);box-shadow:18px 20px 0 rgba(74,23,27,.18)}
 .art-assorted{background:linear-gradient(145deg,#9b6f45,#c79d63)}
