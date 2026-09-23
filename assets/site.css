@@ -197,11 +197,11 @@ html[dir="rtl"] .art-dark:after{content:"داكنة";left:auto;right:24px;letter
 .big-quote blockquote{font-size:clamp(2.2rem,4.8vw,4.8rem);line-height:1.09;letter-spacing:-.045em;max-width:1080px;margin:0;color:#fff9f4}
 html[dir="rtl"] .big-quote blockquote{letter-spacing:0;line-height:1.35}
 .big-quote cite{display:block;margin-top:27px;color:#c7b4ae;font-size:.7rem;font-style:normal}
-.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line-light);border-inline-start:1px solid var(--line-light)}
-.timeline article{padding:31px;border-inline-end:1px solid var(--line-light);border-bottom:1px solid var(--line-light)}
-.timeline .year{display:block;color:var(--bronze);font-size:.7rem;letter-spacing:.16em;margin-bottom:22px}
-.timeline h3{font-size:1.58rem;margin-bottom:11px}
-.timeline p{font-size:.78rem;color:var(--muted);margin:0}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(170,125,61,.18);border-inline-start:1px solid rgba(170,125,61,.18)}
+.timeline article{padding:31px;border-inline-end:1px solid rgba(170,125,61,.18);border-bottom:1px solid rgba(170,125,61,.18);background:#f5efea}
+.timeline .year{display:block;color:#b48847;font-size:.7rem;letter-spacing:.16em;margin-bottom:22px;font-weight:600}
+.timeline h3{font-size:1.58rem;margin-bottom:11px;color:#4a2f28}
+.timeline p{font-size:.78rem;color:#7b6860;margin:0;line-height:1.8}
 
 .source-list{display:grid;gap:0;border-top:1px solid var(--line-light)}
 .source-row{display:grid;grid-template-columns:140px 1fr auto;gap:24px;align-items:center;padding:23px 0;border-bottom:1px solid var(--line-light)}
