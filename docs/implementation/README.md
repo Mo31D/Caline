@@ -6,5 +6,6 @@
 - [Stage 14 — Bespoke Collections Image Slot](./14-bespoke-collections-image-slot.md)
 - [Stage 15 — Manufacturing Visual Story Image Slot](./15-manufacturing-visual-story.md)
 - [Stage 16 — Feature Image Section Polish](./16-feature-image-section-polish.md)
+- [Stage 17 — Chocolate Image System Preparation](./17-chocolate-image-system.md)
 
 Earlier research and audit work remains under [`docs/audit/`](../audit/README.md).
