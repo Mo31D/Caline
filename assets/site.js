@@ -163,7 +163,7 @@
         '<a class="skip-link" href="#main">' + (lang === 'ar' ? 'انتقل إلى المحتوى' : 'Skip to content') + '</a>' +
         '<div class="top-note"><div class="wrap"><span>' + t.top + '</span><a href="' + page('manufacturing.html') + '">' + t.topLink + ' ' + icons.arrow + '</a></div></div>' +
         '<header class="site-header"><div class="wrap header-row">' +
-          '<a class="brand" href="' + page('index.html') + '" aria-label="Caline home"><img src="' + asset('images/logo.png') + '" alt="Caline — Passion au Chocolat"></a>' +
+          '<a class="brand" href="' + page('index.html') + '" aria-label="Caline home"><img src="' + asset('images/logo-display.svg') + '" alt="Caline — Passion au Chocolat"></a>' +
           '<nav class="desktop-nav" aria-label="' + t.menu + '">' +
             navLink('chocolate.html','chocolate',active,t) +
             navLink('gifts.html','gifts',active,t) +
@@ -205,7 +205,7 @@
       footerMount.innerHTML =
         '<footer class="footer"><div class="wrap">' +
           '<div class="footer-main">' +
-            '<div class="footer-brand"><a class="footer-logo" href="' + page('index.html') + '"><img src="' + asset('images/logo.png') + '" alt="Caline"></a><p>' + t.footerIntro + '</p><a class="text-link" href="mailto:' + EMAIL + '">' + EMAIL + '</a></div>' +
+            '<div class="footer-brand"><a class="footer-logo" href="' + page('index.html') + '"><img src="' + asset('images/logo-display.svg') + '" alt="Caline"></a><p>' + t.footerIntro + '</p><a class="text-link" href="mailto:' + EMAIL + '">' + EMAIL + '</a></div>' +
             '<div class="footer-col"><h2>' + t.explore + '</h2><a href="' + page('chocolate.html') + '">' + t.chocolate + '</a><a href="' + page('gifts.html') + '">' + t.gifts + '</a><a href="' + page('manufacturing.html') + '">' + t.manufacturing + '</a></div>' +
             '<div class="footer-col"><h2>' + t.company + '</h2><a href="' + page('about.html') + '">' + t.story + '</a><a href="' + page('contact.html') + '">' + t.contact + '</a></div>' +
             '<div class="footer-col"><h2>' + t.enquiries + '</h2><a href="' + page('selection.html') + '">' + t.selection + '</a><a href="mailto:' + EMAIL + '">' + t.email + '</a><span>' + t.availability + '</span></div>' +
