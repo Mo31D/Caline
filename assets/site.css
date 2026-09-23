@@ -961,6 +961,10 @@ html[dir="rtl"] .product-fact{
   }
 }
 @media(max-width:700px){
+  .notice-section{
+    padding-top:20px;
+    padding-bottom:26px;
+  }
   .featured-product-section{
     padding-top:10px;
     padding-bottom:56px;
